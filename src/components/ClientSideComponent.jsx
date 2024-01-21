@@ -40,8 +40,8 @@ function ClientSideComponent () {
         windowY: window.screenY,
         screenWidth: window.screen.width,
         screenHeight: window.screen.height,
-        centerX: (window.screen.width / 2) - (window.outerWidth - window.innerWidth),
-        centerY: (window.screen.height / 2) - (window.outerHeight - window.innerHeight),
+        centerX: (window.screen.width / 2),
+        centerY: (window.screen.height / 2),
         divSizeWidth: contentRef.current.clientWidth,
         divSizeHeight: contentRef.current.clientHeight,
       }));
