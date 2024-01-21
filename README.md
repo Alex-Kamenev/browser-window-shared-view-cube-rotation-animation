@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Browser Window Shared View
+
+## Overview
+
+This Next.js application visualizes a 3D rotating cube that is synchronized across browser windows. Utilizing React and CSS3D transformations, this project showcases advanced frontend techniques including state management, hooks, and animation within the Next.js framework. A key feature of this application is its synchronized cube rotation, demonstrating a time-based approach to animation.
+
+## Features
+
+- **3D Rotating Cube:** A central cube rotates continuously, created using CSS 3D transforms and React.
+- **Synchronized Animation:** The cube's rotation is synced across different browser windows, using a time-based approach.
+- **Responsive and Adaptive:** Adjusts its size and position based on the browser window's dimensions.
+- **Built with Next.js:** Leverages the power of Next.js for server-side rendering and optimal performance.
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Node.js (version 20 or later)
+- npm
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Setup
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. **Clone the Repository**
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+   git clone <https://github.com/your-username/your-repo-name.git>
+   cd your-repo-name
 
-## Learn More
+2. **Install Dependencies**
 
-To learn more about Next.js, take a look at the following resources:
+   In the project directory, run:
+   npm install
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. **Start the Development Server**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+   npm run dev
 
-## Deploy on Vercel
+Access the app at [http://localhost:3000](http://localhost:3000).
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Usage
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+The application displays a rotating cube on the screen, with its rotation being consistent across different browser windows.
+
+## Contributing
+
+Contributions, issues, and feature requests are welcome. Feel free to check [issues page](https://github.com/your-username/your-repo-name/issues) if you want to contribute.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
