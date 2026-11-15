@@ -28,31 +28,34 @@ function ClientSideComponent () {
   // Reference to the container div.
   const contentRef = useRef(null);
 
-  // Updates the window details.
-  const updateWindowDetails = () => {
-
-    // Check if the component is still mounted before updating state.
-    if (contentRef.current) {
-
-      setWindowDetails(prevDetails => ({
-        ...prevDetails,
-        windowX: window.screenX,
-        windowY: window.screenY,
-        screenWidth: window.screen.width,
-        screenHeight: window.screen.height,
-        centerX: (window.screen.width / 2) - (window.outerWidth - window.innerWidth),
-        centerY: (window.screen.height / 2) - (window.outerHeight - window.innerHeight),
-        divSizeWidth: contentRef.current.clientWidth,
-        divSizeHeight: contentRef.current.clientHeight,
-      }));
-    }
-
-    requestAnimationFrame(updateWindowDetails);
-  };
-
   useEffect(() => {
+    let animationFrameId;
+
+    // Updates the window details.
+    const updateWindowDetails = () => {
+
+      // Check if the component is still mounted before updating state.
+      if (contentRef.current) {
+
+        setWindowDetails(prevDetails => ({
+          ...prevDetails,
+          windowX: window.screenX,
+          windowY: window.screenY,
+          screenWidth: window.screen.width,
+          screenHeight: window.screen.height,
+          centerX: (window.screen.width / 2) - (window.outerWidth - window.innerWidth),
+          centerY: (window.screen.height / 2) - (window.outerHeight - window.innerHeight),
+          divSizeWidth: contentRef.current.clientWidth,
+          divSizeHeight: contentRef.current.clientHeight,
+        }));
+      }
+
+      animationFrameId = requestAnimationFrame(updateWindowDetails);
+    };
+
 
     // Set body style to avoid scrollbars and margin issues.
+    const previousBodyStyle = document.body.style.cssText;
     document.body.style.cssText = 'margin: 0; padding: 0; overflow: hidden;';
 
     // Initialize window details.
@@ -61,9 +64,9 @@ function ClientSideComponent () {
     return () => {
 
       // Clean-up function to reset body style and stop animation frame requests.
-      document.body.style.cssText = '';
+      document.body.style.cssText = previousBodyStyle;
 
-      cancelAnimationFrame(updateWindowDetails);
+      cancelAnimationFrame(animationFrameId);
     };
 
   }, []);

@@ -1,9 +1,4 @@
-import React from 'react';
-import dynamic from 'next/dynamic';
-
-const ClientSideComponent = dynamic(() => import('../components/ClientSideComponent'), {
-  ssr: false,
-});
+import ClientSideComponent from '../components/ClientSideComponent';
 
 function Home() {
   return <ClientSideComponent />;
