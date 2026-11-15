@@ -1,49 +1,35 @@
 # Browser Window Shared View
 
-## Overview
+A CSS 3D cube whose rotation follows the same clock across browser windows. Its
+screen-relative position updates as each window moves, producing a shared view.
 
-This Next.js application visualizes a 3D rotating cube that is synchronized across browser windows. Utilizing React and CSS3D transformations, this project showcases advanced frontend techniques including state management, hooks, and animation within the Next.js framework. A key feature of this application is its synchronized cube rotation, demonstrating a time-based approach to animation.
+Requires Node.js 20.9 on the 20.x release line, or Node.js 22 and newer (24 recommended).
+Built with Next.js 16 and React 19.
 
-## Features
+```sh
+git clone https://github.com/Alex-Kamenev/browser-window-shared-view-cube-rotation-animation.git
+cd browser-window-shared-view-cube-rotation-animation
+npm ci
+npm run dev
+```
 
-- **3D Rotating Cube:** A central cube rotates continuously, created using CSS 3D transforms and React.
-- **Synchronized Animation:** The cube's rotation is synced across different browser windows, using a time-based approach.
-- **Responsive and Adaptive:** Adjusts its size and position based on the browser window's dimensions.
-- **Built with Next.js:** Leverages the power of Next.js for server-side rendering and optimal performance.
+Open http://localhost:3000 in two windows on the same screen. Browser chrome,
+display scaling and multiple monitors can affect physical alignment. Rotation
+uses `Date.now()` without transmitting data between windows. The cube is 300px;
+the screen position adapts to the window rather than resizing the cube.
 
-## Getting Started
+`npm run build` validates the production build; `npm start` serves that build.
+Animation frame handles and pre-existing body styles are restored on unmount.
+The page uses local/system typography and needs no build-time Google Fonts request.
 
-### Prerequisites
+`npm run lint` checks source and `npx tsc --noEmit` checks types. A temporary override
+scoped to `@typescript-eslint/typescript-estree@8.72.2` selects minimatch 11.0.7:
+the parser's declared 10.x range has no fix for
+[GHSA-g3hv-75wg-m249](https://github.com/advisories/GHSA-g3hv-75wg-m249).
+The selected version retains the parser's named matching API and includes the
+[subsequent 11.x security fixes](https://github.com/isaacs/minimatch/releases/tag/v11.0.7).
+Other ESLint consumers retain their compatible minimatch 3.x dependency. Revisit
+this override when TypeScript ESLint updates its declared dependency.
 
-- Node.js (version 20 or later)
-- npm
-
-### Setup
-
-1. **Clone the Repository**
-
-   git clone <https://github.com/your-username/your-repo-name.git>
-   cd your-repo-name
-
-2. **Install Dependencies**
-
-   In the project directory, run:
-   npm install
-
-3. **Start the Development Server**
-
-   npm run dev
-
-Access the app at [http://localhost:3000](http://localhost:3000).
-
-## Usage
-
-The application displays a rotating cube on the screen, with its rotation being consistent across different browser windows.
-
-## Contributing
-
-Contributions, issues, and feature requests are welcome. Feel free to check [issues page](https://github.com/your-username/your-repo-name/issues) if you want to contribute.
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+Issues: https://github.com/Alex-Kamenev/browser-window-shared-view-cube-rotation-animation/issues
+No license file is currently included; this README does not grant a new license.
